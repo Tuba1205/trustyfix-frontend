@@ -1,0 +1,247 @@
+/* HERO BANNER */
+.hero-banner {
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  padding: 12px 24px;
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e66900;
+}
+
+/* SERVICES SECTION */
+.services-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f8f8f8;
+}
+
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card .icon {
+  font-size: 2rem;
+  color: #ff7b00;
+  margin-bottom: 10px;
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.step {
+  max-width: 250px;
+  padding: 20px;
+  border-left: 4px solid #ff7b00;
+  text-align: left;
+}
+
+/* COVERAGE SECTION */
+.coverage-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f0f0f0;
+}
+
+.coverage-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: bold;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+/* Trust Section */
+.trust-section {
+  background: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+}
+.trust-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.trust-item {
+  max-width: 300px;
+}
+.trust-icon {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+/* Offer Banner */
+.offer-banner {
+  background: #e74c3c;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+  border-radius: 10px;
+}
+.offer-icon {
+  font-size: 3rem;
+}
+.offer-banner h3 {
+  margin: 0 0 8px 0;
+}
+.offer-banner p {
+  margin: 0 0 12px 0;
+}
+.offer-cta {
+  background: white;
+  color: #e74c3c;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.offer-cta:hover {
+  background: #c0392b;
+  color: white;
+}
+
+/* Blog Teaser */
+.blog-teaser {
+  padding: 50px 20px;
+  background: #f7f9fa;
+  text-align: center;
+}
+.blog-teaser h2 {
+  font-weight: 700;
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #2c3e50;
+}
+.blog-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.blog-card {
+  background: white;
+  max-width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-8px);
+}
+.blog-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.blog-card h4 {
+  margin: 15px 20px 10px;
+  color: #2c3e50;
+}
+.blog-card p {
+  margin: 0 20px 15px;
+  color: #555;
+  font-size: 0.95rem;
+}
+.read-more {
+  display: inline-block;
+  margin: 0 20px 20px;
+  color: #e74c3c;
+  font-weight: 600;
+  text-decoration: none;
+}
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trust-grid,
+  .blog-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .offer-banner {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,125 @@
+/* Base container */
+* {
+  box-sizing: border-box;
+}
+
+.contact-container {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.contact-container h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.description {
+  text-align: center;
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 25px;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input-row input {
+  flex: 1;
+  min-width: 100px;
+  max-width: 100%;
+}
+
+
+.contact-form input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.8px solid #bdc3c7;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+
+.contact-form input:focus {
+  border-color: #2980b9;
+  outline: none;
+  box-shadow: 0 0 8px #2980b9aa;
+}
+
+.submit-btn {
+  padding: 14px;
+  background-color: grey;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: black;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+  margin-top: 20px;
+  background-color: grey;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background-color: black;
+}
+
+@media (max-width: 480px) {
+  .input-row {
+    flex-direction: column;
+  }
+}
