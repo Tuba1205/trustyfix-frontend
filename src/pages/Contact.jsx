@@ -64,20 +64,20 @@ const Contact = () => {
     setShowAd(false); // hide ad again when popup closes
   };
 
-  // Load Propounder ad when showAd becomes true
-  useEffect(() => {
-    if (showAd) {
-      const script = document.createElement('script');
-      script.src = '//pl26937281.profitableratecpm.com/6e/4e/d7/6e4ed7959cba75654deb1f58fa69d10d.js';
-      script.type = 'text/javascript';
-      script.async = true;
-      const adDiv = document.getElementById('propounder-ad');
-      if (adDiv) {
-        adDiv.innerHTML = ''; // clear previous content
-        adDiv.appendChild(script);
-      }
-    }
-  }, [showAd]);
+  
+ // Place this useEffect ONCE when component mounts
+useEffect(() => {
+  const script = document.createElement('script');
+  script.src = '//pl26937281.profitableratecpm.com/6e/4e/d7/6e4ed7959cba75654deb1f58fa69d10d.js';
+  script.type = 'text/javascript';
+  script.async = true;
+
+  const adDiv = document.getElementById('propounder-ad');
+  if (adDiv && adDiv.childNodes.length === 0) {
+    adDiv.appendChild(script);
+  }
+}, []);
+
 
   return (
     <div className="contact-container">
@@ -105,20 +105,21 @@ const Contact = () => {
         <button type="submit" className="submit-btn">Submit</button>
       </form>
 
-      {showPopup && (
-        <div className="popup-overlay" onClick={closePopup}>
-          <div className="popup-content" onClick={e => e.stopPropagation()}>
-            <p>{status}</p>
+     {showPopup && (
+  <div className="popup-overlay" onClick={closePopup}>
+    <div className="popup-content" onClick={e => e.stopPropagation()}>
+      <p>{status}</p>
 
-            {/* Ad appears here only if form is successfully submitted */}
-            {showAd && (
-              <div id="propounder-ad" style={{ marginTop: '20px' }}></div>
-            )}
+      <div
+        id="propounder-ad"
+        style={{ marginTop: '20px', display: showAd ? 'block' : 'none' }}
+      ></div>
 
-            <button onClick={closePopup} className="close-btn">Close</button>
-          </div>
-        </div>
-      )}
+      <button onClick={closePopup} className="close-btn">Close</button>
+    </div>
+  </div>
+  )}
+
     </div>
   );
 };
