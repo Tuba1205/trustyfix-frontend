@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Services.css';
 
 const services = [
@@ -34,23 +34,50 @@ const services = [
   }
 ];
 
+const AdsterraBanner = ({ index }) => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = '//pl26937242.profitableratecpm.com/6aa3cc2078e8d1d301a2993d5627de94/invoke.js';
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+
+    const containerId = index === 1
+      ? 'container-6aa3cc2078e8d1d301a2993d5627de94'
+      : `adsterra-native-${index}`;
+
+    const container = document.getElementById(containerId);
+    if (container) {
+      container.innerHTML = '';
+      container.appendChild(script);
+    }
+  }, [index]);
+
+  const containerId = index === 1
+    ? 'container-6aa3cc2078e8d1d301a2993d5627de94'
+    : `adsterra-native-${index}`;
+
+  return <div id={containerId} className="ad-banner" />;
+};
+
 const Services = () => {
   return (
     <div className="services-container">
       <h1 className="services-title">Our Home Repair Services</h1>
       {services.map((service, index) => (
-        <div
-          key={index}
-          className={`service-item ${index % 2 === 0 ? 'left' : 'right'}`}
-        >
-          <div className="service-text">
-            <h2>{service.title}</h2>
-            <p>{service.description}</p>
+        <React.Fragment key={index}>
+          <div className={`service-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+            <div className="service-text">
+              <h2>{service.title}</h2>
+              <p>{service.description}</p>
+            </div>
+            <div className="service-image">
+              <img src={service.image} alt={service.title} />
+            </div>
           </div>
-          <div className="service-image">
-            <img src={service.image} alt={service.title} />
-          </div>
-        </div>
+
+          {/* Show ad after every 2 services */}
+          {(index + 1) % 2 === 0 && <AdsterraBanner index={index} />}
+        </React.Fragment>
       ))}
     </div>
   );

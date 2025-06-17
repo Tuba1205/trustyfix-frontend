@@ -63,3 +63,8 @@
   height: auto;
   border-radius: 8px;
 }
+
+.ad-banner {
+  margin: 20px auto;
+  text-align: center;
+}

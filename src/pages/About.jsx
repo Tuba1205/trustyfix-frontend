@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { useEffect } from 'react';
 import './About.css';
 
 const testimonialsData = [
@@ -37,6 +38,18 @@ const faqsData = [
 ];
 
 const About = () => {
+  useEffect(() => {
+  const script = document.createElement('script');
+  script.async = true;
+  script.setAttribute('data-cfasync', 'false');
+  script.src = '//pl26937242.profitableratecpm.com/6aa3cc2078e8d1d301a2993d5627de94/invoke.js';
+  document.body.appendChild(script);
+
+  return () => {
+    document.body.removeChild(script);
+    };
+  }, []);
+
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
 
   const toggleFaq = (index) => {
@@ -84,14 +97,20 @@ const About = () => {
           </div>
 
           <div className="detail-item">
-            <h2>Why Choose Us?</h2>
-            <ul>
-              <li>✔ Certified technicians with years of experience</li>
-              <li>✔ Fast, friendly service tailored to your needs</li>
-              <li>✔ Transparent pricing, no surprises</li>
-              <li>✔ 100% satisfaction guarantee</li>
-            </ul>
-          </div>
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>✔ Certified technicians with years of experience</li>
+    <li>✔ Fast, friendly service tailored to your needs</li>
+    <li>✔ Transparent pricing, no surprises</li>
+    <li>✔ 100% satisfaction guarantee</li>
+  </ul>
+</div>
+
+{/* Native Ad Banner Inserted Here */}
+<div className="native-ad-banner" style={{ margin: '30px 0', textAlign: 'center' }}>
+  <div id="container-6aa3cc2078e8d1d301a2993d5627de94"></div>
+</div>
+
 
           <div className="detail-item">
             <h2>Our Mission</h2>

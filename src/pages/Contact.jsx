@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../pages/Contact.css';
 
 const Contact = () => {
@@ -15,6 +15,7 @@ const Contact = () => {
 
   const [status, setStatus] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [showAd, setShowAd] = useState(false); // Controls ad display
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,6 +25,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus('Sending...');
     setShowPopup(true);
+    setShowAd(false); // reset ad on new submission
 
     try {
       const response = await fetch('https://0daf48c2-bf22-4f4f-828d-e0bc9a71c351-00-2vyd9rbev0n5r.pike.replit.dev/api/send-email', {
@@ -46,6 +48,8 @@ const Contact = () => {
           state: '',
           zip_code: '',
         });
+
+        setShowAd(true); // Show ad after success
       } else {
         setStatus('Error: ' + (data.message || 'Failed to submit form.'));
       }
@@ -57,7 +61,23 @@ const Contact = () => {
   const closePopup = () => {
     setShowPopup(false);
     setStatus('');
+    setShowAd(false); // hide ad again when popup closes
   };
+
+  // Load Propounder ad when showAd becomes true
+  useEffect(() => {
+    if (showAd) {
+      const script = document.createElement('script');
+      script.src = '//pl26937281.profitableratecpm.com/6e/4e/d7/6e4ed7959cba75654deb1f58fa69d10d.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      const adDiv = document.getElementById('propounder-ad');
+      if (adDiv) {
+        adDiv.innerHTML = ''; // clear previous content
+        adDiv.appendChild(script);
+      }
+    }
+  }, [showAd]);
 
   return (
     <div className="contact-container">
@@ -89,6 +109,12 @@ const Contact = () => {
         <div className="popup-overlay" onClick={closePopup}>
           <div className="popup-content" onClick={e => e.stopPropagation()}>
             <p>{status}</p>
+
+            {/* Ad appears here only if form is successfully submitted */}
+            {showAd && (
+              <div id="propounder-ad" style={{ marginTop: '20px' }}></div>
+            )}
+
             <button onClick={closePopup} className="close-btn">Close</button>
           </div>
         </div>
