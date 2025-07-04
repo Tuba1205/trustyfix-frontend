@@ -9,7 +9,7 @@ import Footer from './components/Footer.jsx';
 import BlogDetail from './components/BlogDetail';
 import PrivacyPolicy from './components/PrivacyPolicy.jsx';
 import TermsofService from './components/TermsofService.jsx';
-import AdLoader from './components/AdLoader.jsx';
+
 
 import './App.css';
 
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-    <AdLoader /> {/* ← Safe ad loader */}
+    
       <div className="navbar">
         <h2>TrustyFix</h2>
         <nav>

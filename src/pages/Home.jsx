@@ -1,56 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Home.css';
 import { FaWrench, FaBath, FaBolt, FaPhoneAlt, FaShieldAlt, FaCertificate, FaPercent, FaBlog } from 'react-icons/fa';
 
-const AdsterraBannerHome = ({ index }) => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '//pl26937242.profitableratecpm.com/6aa3cc2078e8d1d301a2993d5627de94/invoke.js';
-    script.async = true;
-    script.setAttribute('data-cfasync', 'false');
-
-    const containerId = index === 1
-      ? 'container-6aa3cc2078e8d1d301a2993d5627de94' // Required by Adsterra
-      : `adsterra-home-${index}`;
-
-    const container = document.getElementById(containerId);
-    if (container) {
-      container.innerHTML = '';
-      container.appendChild(script);
-    }
-  }, [index]);
-
-  const containerId = index === 1
-    ? 'container-6aa3cc2078e8d1d301a2993d5627de94'
-    : `adsterra-home-${index}`;
-
-  return <div id={containerId} className="ad-banner" />;
-};
-
 const Home = () => {
-  const services = [
-    {
-      icon: <FaWrench className="icon" />,
-      title: 'Kitchen Repairs',
-      description: 'Appliances, plumbing, cabinets & countertops.'
-    },
-    {
-      icon: <FaBath className="icon" />,
-      title: 'Bathroom Fixes',
-      description: 'Leaks, faucets, tile work and more.'
-    },
-    {
-      icon: <FaBolt className="icon" />,
-      title: 'Electrical Help',
-      description: 'Wiring, sockets, lights, breakers & inspections.'
-    },
-    {
-      icon: <FaPhoneAlt className="icon" />,
-      title: 'Emergency Repairs',
-      description: 'Urgent issues handled 24/7, even weekends.'
-    }
-  ];
-
   return (
     <div className="home-container">
 
@@ -59,6 +11,7 @@ const Home = () => {
         <div className="hero-overlay">
           <div className="hero-content">
             <h1>Professional Kitchen & Home Repairs</h1>
+            {/* // “Fix it right. Fix it with TrustyFix.” */}
             <p>Trusted by families across the U.S. for fast, reliable, and affordable repairs.</p>
             <a href="/contact" className="cta-button">Book Now</a>
           </div>
@@ -69,17 +22,26 @@ const Home = () => {
       <section className="services-section">
         <h2>Our Services</h2>
         <div className="service-grid">
-          {services.map((service, index) => (
-            <React.Fragment key={index}>
-              <div className="service-card">
-                {service.icon}
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </div>
-
-              {(index + 1) % 2 === 0 && <AdsterraBannerHome index={index} />}
-            </React.Fragment>
-          ))}
+          <div className="service-card">
+            <FaWrench className="icon" />
+            <h3>Kitchen Repairs</h3>
+            <p>Appliances, plumbing, cabinets & countertops.</p>
+          </div>
+          <div className="service-card">
+            <FaBath className="icon" />
+            <h3>Bathroom Fixes</h3>
+            <p>Leaks, faucets, tile work and more.</p>
+          </div>
+          <div className="service-card">
+            <FaBolt className="icon" />
+            <h3>Electrical Help</h3>
+            <p>Wiring, sockets, lights, breakers & inspections.</p>
+          </div>
+          <div className="service-card">
+            <FaPhoneAlt className="icon" />
+            <h3>Emergency Repairs</h3>
+            <p>Urgent issues handled 24/7, even weekends.</p>
+          </div>
         </div>
       </section>
 
@@ -102,7 +64,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TRUST BADGES */}
+      {/* TRUST BADGES / CERTIFICATES */}
       <section className="trust-section">
         <h2>Why Trust Us?</h2>
         <div className="trust-grid">
@@ -124,7 +86,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SPECIAL OFFERS */}
+      {/* SPECIAL OFFERS / DISCOUNT BANNER */}
       <section className="offer-banner">
         <FaPercent className="offer-icon" />
         <div>
@@ -156,11 +118,9 @@ const Home = () => {
             <p>Learn how to keep your family safe with expert advice.</p>
             <a href="/blog/electrical-safety" className="read-more">Read More</a>
           </article>
+
         </div>
       </section>
-
-      {/* NATIVE AD BELOW BLOG */}
-      <AdsterraBannerHome index="blog-bottom" />
 
       {/* SERVICE AREAS */}
       <section className="coverage-section">

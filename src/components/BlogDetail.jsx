@@ -1,5 +1,4 @@
-// src/components/BlogDetail.jsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import './BlogDetail.css';
@@ -48,14 +47,6 @@ const BlogDetail = () => {
   const { slug } = useParams();
   const blog = blogPosts[slug];
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '//pl26937242.profitableratecpm.com/6aa3cc2078e8d1d301a2993d5627de94/invoke.js';
-    script.async = true;
-    script.setAttribute('data-cfasync', 'false');
-    document.getElementById('container-6aa3cc2078e8d1d301a2993d5627de94')?.appendChild(script);
-  }, []);
-
   if (!blog) {
     return <div style={{ padding: '20px' }}><h2>Blog not found</h2></div>;
   }
@@ -73,9 +64,6 @@ const BlogDetail = () => {
         className="blog-content"
         dangerouslySetInnerHTML={{ __html: blog.content }}
       ></div>
-
-      {/* Native Ad Widget */}
-      <div id="container-6aa3cc2078e8d1d301a2993d5627de94" style={{ marginTop: '30px' }}></div>
     </div>
   );
 };
